@@ -1,0 +1,1 @@
+require("human.config.init")
