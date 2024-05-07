@@ -52,6 +52,7 @@ return {
           ["<Backspace>"] = "actions.parent",
           ["<S-Backspace>"] = "actions.open_cwd",
           ["H"] = "actions.toggle_hidden",
+          ["<Esc>"] = "actions.close",
         },
       })
     end,
