@@ -22,7 +22,6 @@ return {
   "isopropyletherperoxide/komeiji-vim",
   "bringsrain/strawberry",
   "ben-barnes/vimspectr",
-  "ivanhernandez/pompeii",
   "lamu-ai/lamu.vim",
   "rktjmp/lush.nvim",
   "Yazeed1s/oh-lucy.nvim",
