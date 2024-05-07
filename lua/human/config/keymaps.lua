@@ -64,9 +64,9 @@ keymap("n", "L", "<cmd>HarpoonNext<cr>", { desc = "Harpoon next" })
 
 -- lsp hops
 keymap("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition" })
-keymap("n", "gi", "<cmd>Telescope lsp_implementation<cr>", { desc = "Go to implementation" })
+keymap("n", "gi", "<cmd>Telescope lsp_implementations<cr>", { desc = "Go to implementation" })
 keymap("n", "gr", "<cmd>Telescope lsp_references<cr>", { desc = "Go to references" })
-keymap("n", "gt", "<cmd>Telescope lsp_type_definition<cr>", { desc = "Go to type definition" })
+keymap("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", { desc = "Go to type definition" })
 
 -- git
 keymap("n", "<leader>ggs", "<cmd>Telescope git_status<cr>", { desc = "Git status" })
