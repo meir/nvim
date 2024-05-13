@@ -201,13 +201,13 @@ local function create_layout(picker)
   return TSLayout(layout)
 end
 
-return {
+return { 
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       {
-        "telescope-fzf-native.nvim",
-        build = "make",
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make"
       },
       {
         "MunifTanjim/nui.nvim",
