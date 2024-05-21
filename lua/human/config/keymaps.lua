@@ -31,8 +31,8 @@ keymap("n", "ff", ":HopWord<cr>", { desc = "Hop" })
 
 -- terminal
 keymap("n", "<leader>tt", ":spl|terminal<cr>:resize 20<cr>", { desc = "Open terminal" })
-keymap("t", "<leader>tq", "exit<cr><cmd>sleep 50m<cr><cr>", { desc = "Close terminal" })
-keymap("n", "<leader>tq", "iexit<cr><cmd>sleep 50m<cr><cr>", { desc = "Close terminal" })
+keymap("t", "<leader>tq", "<C-c><C-d><cmd>q<cr>", { desc = "Close terminal" })
+keymap("n", "<leader>tq", "i<C-c><C-d><cmd>q<cr>", { desc = "Close terminal" })
 keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- filetree
