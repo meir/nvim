@@ -30,7 +30,7 @@ keymap("n", "<leader>os", ":OverseerRun<cr>", { desc = "Run Overseer" })
 keymap("n", "ff", ":HopWord<cr>", { desc = "Hop" })
 
 -- terminal
-keymap("n", "<leader>tt", ":spl|terminal<cr>:resize 20<cr>", { desc = "Open terminal" })
+keymap("n", "<leader>tt", ":spl|terminal<cr>:resize 22<cr>", { desc = "Open terminal" })
 keymap("t", "<leader>tq", "<C-c><C-d><cmd>q<cr>", { desc = "Close terminal" })
 keymap("n", "<leader>tq", "i<C-c><C-d><cmd>q<cr>", { desc = "Close terminal" })
 keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
@@ -51,6 +51,12 @@ keymap("n", "<leader>cs", "<cmd>ColorschemeSave<cr>", { desc = "Set current colo
 
 -- close buffer
 keymap("n", "<leader>bd", "<cmd>CloseBuffer<cr>", { desc = "Close buffer" })
+
+-- diff buffers
+keymap("n", "<leader>be", "<cmd>windo diffthis<cr>", { desc = "Diff buffers" })
+
+-- format buffer
+keymap("n", "<leader>bf", vim.lsp.buf.format, { desc = "Format buffer" })
 
 -- peepsight
 keymap("n", "<leader>pt", "<cmd>Peepsight<cr>", { desc = "Peepsight toggle" })
