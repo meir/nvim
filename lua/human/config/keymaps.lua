@@ -55,6 +55,9 @@ keymap("n", "<leader>bd", "<cmd>CloseBuffer<cr>", { desc = "Close buffer" })
 -- diff buffers
 keymap("n", "<leader>be", "<cmd>windo diffthis<cr>", { desc = "Diff buffers" })
 
+-- set filetype
+keymap("n", "<leader>bt", "<cmd>SetBufferFiletype<cr>", { desc = "Set buffer filetype" })
+
 -- format buffer
 keymap("n", "<leader>bf", vim.lsp.buf.format, { desc = "Format buffer" })
 

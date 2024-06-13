@@ -94,6 +94,18 @@ table.insert(commands, {
   end,
   { nargs = 0 },
 })
+
+-- set buffer filetype
+
+table.insert(commands, {
+  "SetBufferFiletype",
+  function()
+    local filetype = vim.fn.input("Filetype: ")
+    vim.bo.filetype = filetype
+  end,
+  { nargs = 0 },
+})
+
 -- add all commands
 
 for _, cmd in ipairs(commands) do
