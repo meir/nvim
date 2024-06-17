@@ -1,7 +1,6 @@
 local function create_layout(picker)
   local Layout = require("nui.layout")
   local Popup = require("nui.popup")
-  local telescope = require("telescope")
   local TSLayout = require("telescope.pickers.layout")
 
   local function make_popup(options)
@@ -201,13 +200,13 @@ local function create_layout(picker)
   return TSLayout(layout)
 end
 
-return { 
+return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make"
+        build = "make",
       },
       {
         "MunifTanjim/nui.nvim",

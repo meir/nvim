@@ -7,7 +7,7 @@ return {
     },
     config = function()
       vim.diagnostic.config({
-        virtual_text = false,
+        virtual_text = true,
         signs = true,
         underline = true,
         update_in_insert = true,
@@ -41,17 +41,6 @@ return {
             },
           })
         end,
-      })
-    end,
-  },
-  {
-    -- lsp_lines is a simple neovim plugin that renders diagnostics using virtual lines on top of the real line of code
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup({
-        diagnostics = {
-          virtual_text = false,
-        },
       })
     end,
   },

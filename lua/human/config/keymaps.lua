@@ -88,3 +88,6 @@ keymap("n", "<leader>ggm", "<cmd>Telescope git_merge<cr>", { desc = "Git merge" 
 keymap("n", "<leader>ggr", "<cmd>Telescope git_rebase<cr>", { desc = "Git rebase" })
 keymap("n", "<leader>ggt", "<cmd>Telescope git_tags<cr>", { desc = "Git tags" })
 keymap("n", "<leader>ggd", "<cmd>Telescope git_diff<cr>", { desc = "Git diff" })
+
+-- open diagnostics
+keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open diagostics for current line" })

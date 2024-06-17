@@ -12,20 +12,4 @@ return {
       })
     end,
   },
-  {
-    -- A Neovim plugin to add vscode-style TailwindCSS completion to nvim-cmp
-    "roobert/tailwindcss-colorizer-cmp.nvim",
-    config = function()
-      local twc = require("tailwindcss-colorizer-cmp")
-      local cmp = require("cmp")
-
-      twc.setup({
-        color_square_width = 2,
-      })
-
-      cmp.config.formatting = {
-        format = twc.formatter,
-      }
-    end,
-  },
 }
