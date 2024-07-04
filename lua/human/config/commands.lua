@@ -106,6 +106,15 @@ table.insert(commands, {
   { nargs = 0 },
 })
 
+-- gitlinker command
+table.insert(commands, {
+  "YankPermalink",
+  function()
+    require("gitlinker").get_buf_range_url("n")
+  end,
+  { nargs = 0 },
+})
+
 -- add all commands
 
 for _, cmd in ipairs(commands) do
