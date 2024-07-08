@@ -91,4 +91,4 @@ keymap("n", "<leader>ggd", "<cmd>Telescope git_diff<cr>", { desc = "Git diff" })
 keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open diagostics for current line" })
 
 -- gitlinker
-keymap("n", "yp", "<cmd>YankPermalink<cr>", { desc = "Yank git permalink on line" })
+keymap("n", "yu", "<cmd>YankPermalink<cr>", { desc = "Yank git permalink on line" })
