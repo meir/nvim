@@ -4,6 +4,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     config = function()
       local ts_config = require("nvim-treesitter.configs")
+      require("nvim-treesitter.install").compilers = { "gcc-12" }
       ts_config.setup({
         ensure_installed = {
           "bash",

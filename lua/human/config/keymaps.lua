@@ -12,14 +12,10 @@ keymap("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 keymap("n", "sx", ":split<cr><C-w>w", { desc = "Open split window on bottom" })
 keymap("n", "sd", ":vsplit<cr><C-w>w", { desc = "Open split window on right" })
 
--- global yank
-keymap("n", "<leader>y", '"+y', { desc = "Yank" })
-keymap("v", "<leader>y", '"+y', { desc = "Yank selection" })
-keymap("n", "<leader>Y", '"+Y', { desc = "Yank line" })
-keymap("n", "<leader>d", '"_d', { desc = "Cut" })
-keymap("v", "<leader>d", '"_d', { desc = "Cut" })
-
+-- Select all
 keymap("n", "<C-a>", "gg<S-v>G<cr>zz", { desc = "Select all" })
+
+-- Redo
 keymap("n", "<S-u>", "<C-r>", { desc = "Redo" })
 
 -- overseer toggle/start
@@ -30,6 +26,7 @@ keymap("n", "<leader>os", ":OverseerRun<cr>", { desc = "Run Overseer" })
 keymap("n", "ff", ":HopWord<cr>", { desc = "Hop" })
 
 -- terminal
+
 keymap("n", "<leader>tt", ":spl|terminal<cr>:resize 22<cr>", { desc = "Open terminal" })
 keymap("t", "<leader>tq", "<C-c><C-d><cmd>q<cr>", { desc = "Close terminal" })
 keymap("n", "<leader>tq", "i<C-c><C-d><cmd>q<cr>", { desc = "Close terminal" })
@@ -54,6 +51,7 @@ keymap("n", "<leader>bd", "<cmd>CloseBuffer<cr>", { desc = "Close buffer" })
 
 -- diff buffers
 keymap("n", "<leader>be", "<cmd>windo diffthis<cr>", { desc = "Diff buffers" })
+keymap("n", "<leader>bc", "<cmd>windo diffoff<cr>", { desc = "Close diff" })
 
 -- set filetype
 keymap("n", "<leader>bt", "<cmd>SetBufferFiletype<cr>", { desc = "Set buffer filetype" })

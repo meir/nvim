@@ -34,6 +34,9 @@ local options = {
 
   -- swap
   swapfile = false,
+
+  -- conceallevel
+  conceallevel = 3,
 }
 
 vim.g.mapleader = " "
