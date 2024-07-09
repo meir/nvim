@@ -6,7 +6,6 @@ return {
   },
   {
     "nvim-neorg/neorg",
-    dependencies = { "luarocks.nvim" },
     config = function()
       require("neorg").setup({
         load = {
@@ -26,15 +25,17 @@ return {
                 },
               },
             },
-            ["core.dirman"] = {
-              config = {
-                workspaces = {
-                  notes = "~/notes",
-                },
-                default_workspace = "notes",
+          },
+          ["core.dirman"] = {
+            config = {
+              workspaces = {
+                notes = "~/notes",
               },
+              index = "00-index.norg",
+              default_workspace = "notes",
             },
           },
+          ["core.syntax"] = {},
         },
       })
     end,

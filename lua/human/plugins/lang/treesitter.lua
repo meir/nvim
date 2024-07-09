@@ -21,6 +21,7 @@ return {
           "tsx",
           "typescript",
           "go",
+          "norg",
         },
         highlight = {
           enable = true,
