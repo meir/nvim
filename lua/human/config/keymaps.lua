@@ -27,7 +27,7 @@ keymap("n", "ff", ":HopWord<cr>", { desc = "Hop" })
 
 -- terminal
 
-keymap("n", "<leader>tt", ":spl|terminal<cr>:resize 22<cr>", { desc = "Open terminal" })
+keymap("n", "<leader>tt", ":spl|terminal<cr>:resize 12<cr>", { desc = "Open terminal" })
 keymap("t", "<leader>tq", "<C-c><C-d><cmd>q<cr>", { desc = "Close terminal" })
 keymap("n", "<leader>tq", "i<C-c><C-d><cmd>q<cr>", { desc = "Close terminal" })
 keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
