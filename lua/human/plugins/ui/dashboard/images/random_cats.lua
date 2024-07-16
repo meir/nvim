@@ -4,6 +4,7 @@ local cats = {
   "cat_laying",
   "cat_sleeping",
   "cat_w_bug",
+  "curious_cat",
 }
 
 math.randomseed(os.time())
