@@ -1,4 +1,9 @@
 local keymap = vim.keymap.set
+local del = vim.keymap.del
+
+-- delete keymaps with overlaps
+del("n", "gb")
+del("n", "gc")
 
 keymap("n", "<leader>qq", ":qa!<cr>", { desc = "Quit" })
 
@@ -81,7 +86,7 @@ keymap("n", "<leader>ggb", "<cmd>Telescope git_branches<cr>", { desc = "Git bran
 keymap("n", "<leader>ggc", "<cmd>Telescope git_commits<cr>", { desc = "Git commits" })
 keymap("n", "<leader>ggf", "<cmd>Telescope git_files<cr>", { desc = "Git files" })
 keymap("n", "<leader>ggp", "<cmd>Telescope git_pull<cr>", { desc = "Git pull" })
-keymap("n", "<leader>ggpu", "<cmd>Telescope git_push<cr>", { desc = "Git push" })
+keymap("n", "<leader>ggo", "<cmd>Telescope git_push<cr>", { desc = "Git push" })
 keymap("n", "<leader>ggm", "<cmd>Telescope git_merge<cr>", { desc = "Git merge" })
 keymap("n", "<leader>ggr", "<cmd>Telescope git_rebase<cr>", { desc = "Git rebase" })
 keymap("n", "<leader>ggt", "<cmd>Telescope git_tags<cr>", { desc = "Git tags" })
