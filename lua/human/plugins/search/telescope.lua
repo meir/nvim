@@ -95,9 +95,6 @@ local function create_layout(picker)
         top_align = "center",
       },
     },
-    win_options = {
-      winhighlight = "Normal:Normal",
-    },
   })
 
   local prompt = make_popup({
@@ -108,9 +105,6 @@ local function create_layout(picker)
         top = picker.prompt_title,
         top_align = "center",
       },
-    },
-    win_options = {
-      winhighlight = "Normal:Normal",
     },
   })
 

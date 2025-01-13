@@ -1,16 +1,3 @@
-local function close(cmp)
-  return function(fallback)
-    if cmp == nil then
-      fallback()
-    end
-
-    if cmp.visible() then
-      cmp.close()
-    end
-    fallback()
-  end
-end
-
 return {
   {
     "zbirenbaum/copilot.lua",
@@ -26,75 +13,112 @@ return {
     },
   },
   {
-    "zbirenbaum/copilot-cmp",
+    "giuxtaposition/blink-cmp-copilot",
     dependencies = {
       "zbirenbaum/copilot.lua",
     },
-    config = function()
-      require("copilot_cmp").setup()
-    end,
   },
   {
-    -- A completion plugin for neovim coded in Lua.
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "zbirenbaum/copilot-cmp",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-    },
-    event = "InsertEnter",
-    config = function(_, opts)
-      local cmp = require("cmp")
-      local defaults = require("cmp.config.default")()
-
-      cmp.setup({
-        preselect = cmp.PreselectMode.None,
-        completion = {
-          completeopt = "menu,menuone,noinsert,noselect",
-        },
-        window = {
-          documentation = {
-            max_height = 10,
+    "saghen/blink.cmp",
+    version="*",
+    opts = {
+      completion = {
+        list = {
+          selection = {
+            preselect = false,
+            auto_insert = true,
           },
         },
-        performance = {
-          max_view_entries = 20,
+        menu = {
+          auto_show = function(ctx) return ctx.mode ~= 'cmdline' end,
+          draw = {
+            treesitter = { 'lsp' },
+            columns = {
+              {
+                "label",
+                "label_description",
+                gap = 1,
+              },
+              {
+                "kind_icon",
+                "kind",
+              },
+            },
+          },
         },
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end,
+        trigger = {
+          show_on_trigger_character = true,
+          show_on_keyword = true,
+          show_on_insert_on_trigger_character = true,
         },
-        mapping = opts.mapping,
-        sources = cmp.config.sources({
-          { name = "copilot", group_index = 1, priority = 100 },
-          { name = "nvim_lsp" },
-          { name = "path" },
-        }, {
-          { name = "buffer" },
-        }),
-        sorting = defaults.sorting,
-      })
-    end,
+      },
+      keymap = {
+        preset = 'none',
+        ['<CR>'] = { 'accept', 'fallback' },
+        ['<C-Up>'] = { 'select_prev', 'fallback' },
+        ['<C-Down>'] = { 'select_next', 'fallback' },
+      },
+      sources = {
+        default = {
+          "copilot",
+          "lsp",
+          "buffer",
+          "path",
+          "snippets",
+        },
+        providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-cmp-copilot",
+            score_offset = 100,
+            async = true,
+            transform_items = function(_, items)
+              local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+              local kind_idx = #CompletionItemKind + 1
+              CompletionItemKind[kind_idx] = "Copilot"
+              for _, item in ipairs(items) do
+                item.kind = kind_idx
+              end
+              return items
+            end,
+          },
+        },
+      },
+      appearance = {
+        kind_icons = {
+          Copilot = "",
+          Text = '󰉿',
+          Method = '󰊕',
+          Function = '󰊕',
+          Constructor = '󰒓',
 
-    opts = function(opts)
-      local cmp = require("cmp")
+          Field = '󰜢',
+          Variable = '󰆦',
+          Property = '󰖷',
 
-      if opts.mapping == nil then
-        opts.mapping = {}
-      end
+          Class = '󱡠',
+          Interface = '󱡠',
+          Struct = '󱡠',
+          Module = '󰅩',
 
-      opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        -- ignore completion up and down without control
-        ["<Up>"] = cmp.mapping(close(cmp), { "i", "s" }),
-        ["<Down>"] = cmp.mapping(close(cmp), { "i", "s" }),
+          Unit = '󰪚',
+          Value = '󰦨',
+          Enum = '󰦨',
+          EnumMember = '󰦨',
 
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
-        ["<C-Up>"] = cmp.mapping.select_prev_item(),
-        ["<C-Down>"] = cmp.mapping.select_next_item(),
-      })
-      return opts
-    end,
-  },
+          Keyword = '󰻾',
+          Constant = '󰏿',
+
+          Snippet = '󱄽',
+          Color = '󰏘',
+          File = '󰈔',
+          Reference = '󰬲',
+          Folder = '󰉋',
+          Event = '󱐋',
+          Operator = '󰪚',
+          TypeParameter = '󰬛',
+        },
+      },
+    },
+  }
 }
