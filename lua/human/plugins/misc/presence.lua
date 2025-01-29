@@ -3,7 +3,7 @@ return {
   "andweeb/presence.nvim",
   config = function()
     local function for_work()
-      local work_folder = "Notive"
+      local work_folder = "IO"
 
       local current_path = vim.fn.getcwd()
       local includes_work_folder = string.find(current_path, work_folder)

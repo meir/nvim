@@ -1,13 +1,12 @@
 return {
   {
-    -- Nvim Treesitter configurations and abstraction layer
     "nvim-treesitter/nvim-treesitter",
     config = function()
-      local ts_config = require("nvim-treesitter.configs")
-      require("nvim-treesitter.install").compilers = { "gcc" }
-      ts_config.setup({
+      require("nvim-treesitter.configs").setup({
         ensure_installed = {
           "bash",
+          "vim",
+          "vimdoc",
           "html",
           "javascript",
           "json",
@@ -19,10 +18,9 @@ return {
           "typescript",
           "yaml",
           "tsx",
-          "typescript",
           "go",
-          "norg",
         },
+        auto_install = true,
         highlight = {
           enable = true,
         },
