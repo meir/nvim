@@ -24,11 +24,11 @@ return {
     "saghen/blink.cmp",
     version="*",
     opts = {
-      documentation = {
-        auto_show = true,
-        auto_show_delay_ms = 500
-      },
       completion = {
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 500
+        },
         list = {
           selection = {
             preselect = false,
