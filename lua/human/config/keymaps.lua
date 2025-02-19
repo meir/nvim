@@ -23,10 +23,6 @@ keymap("n", "<C-a>", "gg<S-v>G<cr>zz", { desc = "Select all" })
 -- Redo
 keymap("n", "<S-u>", "<C-r>", { desc = "Redo" })
 
--- overseer toggle/start
-keymap("n", "<leader>ot", ":OverseerToggle<cr>", { desc = "Open Overseer" })
-keymap("n", "<leader>os", ":OverseerRun<cr>", { desc = "Run Overseer" })
-
 -- hop
 keymap("n", "ff", ":HopWord<cr>", { desc = "Hop" })
 
@@ -62,16 +58,6 @@ keymap("n", "<leader>bt", "<cmd>SetBufferFiletype<cr>", { desc = "Set buffer fil
 
 -- format buffer
 keymap("n", "<leader>bf", vim.lsp.buf.format, { desc = "Format buffer" })
-
--- peepsight
-keymap("n", "<leader>pt", "<cmd>Peepsight<cr>", { desc = "Peepsight toggle" })
-
--- harpoon
-keymap("n", "<leader>a", "<cmd>HarpoonAdd<cr>", { desc = "Add harpoon" })
-keymap("n", "<leader>h", "<cmd>HarpoonOpen<cr>", { desc = "Open harpoon" })
-
-keymap("n", "H", "<cmd>HarpoonPrev<cr>", { desc = "Harpoon previous" })
-keymap("n", "L", "<cmd>HarpoonNext<cr>", { desc = "Harpoon next" })
 
 -- lsp hops
 keymap("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition" })

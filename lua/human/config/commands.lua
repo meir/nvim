@@ -20,58 +20,6 @@ table.insert(commands, {
   },
 })
 
--- harpoon
-
-table.insert(commands, {
-  "HarpoonAdd",
-  function()
-    require("harpoon"):list():add()
-  end,
-  { nargs = 0 },
-})
-
-table.insert(commands, {
-  "HarpoonOpen",
-  function()
-    local harpoon = require("harpoon")
-    harpoon.ui:toggle_quick_menu(harpoon:list())
-  end,
-  { nargs = 0 },
-})
-
-table.insert(commands, {
-  "HarpoonSelect",
-  function(i)
-    local page_num = tonumber(i)
-    require("harpoon"):list():select(page_num)
-  end,
-  { nargs = 1 },
-})
-
-table.insert(commands, {
-  "HarpoonNext",
-  function()
-    require("harpoon"):list():next()
-  end,
-  { nargs = 0 },
-})
-
-table.insert(commands, {
-  "HarpoonPrev",
-  function()
-    require("harpoon"):list():prev()
-  end,
-  { nargs = 0 },
-})
-
-table.insert(commands, {
-  "HarpoonFirst",
-  function()
-    require("harpoon"):list():select(1)
-  end,
-  { nargs = 0 },
-})
-
 -- colorscheme commands
 
 table.insert(commands, {
