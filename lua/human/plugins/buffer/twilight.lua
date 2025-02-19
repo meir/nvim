@@ -1,9 +1,9 @@
 return {
   -- Focus on one function at a time
-  "koenverburg/peepsight.nvim",
-  config = function()
-    local peepsight = require("peepsight")
-    peepsight.setup({
+  "folke/twilight.nvim",
+  config = function ()
+    local twilight = require("twilight")
+    twilight.setup({
       -- go
       "function_declaration",
       "method_declaration",
@@ -16,7 +16,6 @@ return {
       "function_declaration",
       "generator_function_declaration",
     })
-
-    peepsight.enable()
-  end,
+    twilight.enable()
+  end
 }

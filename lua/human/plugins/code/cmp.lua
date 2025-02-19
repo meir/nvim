@@ -1,6 +1,7 @@
 return {
   {
     "zbirenbaum/copilot.lua",
+    version = "*",
     cmd = "Copilot",
     build = ":Copilot auth",
     opts = {
@@ -14,6 +15,7 @@ return {
   },
   {
     "giuxtaposition/blink-cmp-copilot",
+    version = "*",
     dependencies = {
       "zbirenbaum/copilot.lua",
     },
