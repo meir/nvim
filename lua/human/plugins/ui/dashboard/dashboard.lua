@@ -31,7 +31,6 @@ return {
           header = vim.split(logo, "\n"),
           center = {
             { action = "ene", desc = "New buffer", key = "n" },
-            { action = "HarpoonFirst", desc = "Open last hook", key = "s" },
             { action = "Telescope find_files", desc = "Find files", key = "f" },
             { action = "Lazy", desc = "Lazy dashboard", key = "l" },
             { action = "q", desc = "Quit", key = "q" },

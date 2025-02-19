@@ -1,3 +1,26 @@
+
+local function filename()
+  return vim.fn.expand("%:.")
+end
+
+local sections = {
+  lualine_a = { "mode" },
+  lualine_b = { {
+    "diagnostics",
+    symbols = {
+      error = "  ",
+      warn = "  ",
+      info = "  ",
+      hint = " ",
+    }
+  }, filename, "filesize" },
+  lualine_c = { "branch", "diff" },
+
+  lualine_x = { "encoding", "fileformat", "filetype" },
+  lualine_y = { "progress", "location" },
+  lualine_z = { "os.date('%H:%M')" },
+}
+
 return {
   -- A blazing fast and easy to configure neovim statusline plugin written in pure lua.
   "nvim-lualine/lualine.nvim",
@@ -17,15 +40,8 @@ return {
           right = "",
         },
       },
-      sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "filename", "filesize" },
-        lualine_c = { "branch", "diff" },
-
-        lualine_x = { "encoding", "fileformat", "filetype" },
-        lualine_y = { "progress", "location" },
-        lualine_z = { "os.date('%H:%M')" },
-      },
+      sections = sections,
+      inactive_sections = sections,
     })
   end,
 }
