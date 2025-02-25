@@ -3,89 +3,74 @@ local function script_path()
 end
 
 local dir = script_path()
-package.path = package.path .. ";" .. dir .. "?.lua"
+-- package.path = package.path .. ";" .. dir .. "?.lua"
 
-local function loadfile(file)
-  local path = string.gsub(file, dir, "")
-  path = string.gsub(path, "%.lua$", "")
-  path = string.gsub(path, "/", ".")
-
-  local ok, response = pcall(require, path)
-  if not ok then
-    print("failed to load plugin", file, response)
-    return false
+local function check_plugin(data)
+  if type(data) == "table" then
+    if type(data[1]) == "string" then
+      return true
+    else
+      for _, value in pairs(data) do
+        if type(value) == "table" then
+          if not check_plugin(value) then
+            return false
+          end
+        end
+      end
+      return true
+    end
   end
-
-  return response
 end
 
-local function clean_plugin(plugin)
-  if type(plugin) ~= "table" then
-    return false, {}
+local function get_require_path(path)
+  for _, runtime_path in pairs(vim.api.nvim_list_runtime_paths()) do
+    path = string.gsub(path, runtime_path .. "/lua/", "")
   end
+  path = string.gsub(path, "%.lua$", "")
+  path = string.gsub(path, "/", ".")
+  return path
+end
 
-  if type(plugin[1]) == "string" then
-    return true, plugin
-  end
-
-  local actual_plugins = {}
-  for key, value in pairs(plugin) do
-    if type(value) == "table" then
-      local is_plug = false
-      is_plug, actual_plugins[key] = clean_plugin(value)
-      if is_plug == false then
-        return false, {}
+local function load_plugin(file)
+  if string.match(file, ".lua$") then
+    local path = get_require_path(file)
+    local plugin = require(path)
+    if plugin then
+      if check_plugin(plugin) then
+        return plugin, true
       end
     end
   end
-
-  return #actual_plugins == #plugin, plugin
+  return nil, false
 end
 
-local function is_plugin(file)
-  local is_lua = string.match(file, "%.lua$")
-  if not is_lua then
-    return false
-  end
-  -- ignore init.lua files
-  if string.match(file, "init%.lua$") then
-    return false
-  end
-
-  local response = loadfile(file)
-  local is_plug = false
-  is_plug, response = clean_plugin(response)
-  return is_lua and is_plug, response
-end
-
-local function find_recursive(folder)
-  -- check if folder exists
-  local exists = vim.fn.isdirectory(folder)
-  if exists == 0 then
-    return {}
-  end
-
-  -- loop through files in folder
+local function find_plugins(file)
   local plugins = {}
-  local files = vim.fn.readdir(folder)
-  for _, file in ipairs(files) do
-    local path = folder .. file
-    local is_dir = vim.fn.isdirectory(path)
-    if is_dir == 1 then
-      local nested = find_recursive(path .. "/")
-      for _, plugin in ipairs(nested) do
-        table.insert(plugins, plugin)
+
+  if vim.fn.isdirectory(file) == 1 then
+    local subfiles = vim.fn.readdir(file)
+    for _, subfile in pairs(subfiles) do
+      local subplugins = find_plugins(vim.fn.resolve(file .. "/" .. subfile))
+      for _, plug in pairs(subplugins) do
+        table.insert(plugins, plug)
       end
-    else
-      local ok, plugin = is_plugin(path)
-      if ok then
-        table.insert(plugins, plugin)
-      end
+    end
+  else
+    if file == nil then
+      return {}
+    end
+
+    if string.match(file, "init%.lua$") then
+      return {}
+    end
+
+    local plugin, ok = load_plugin(file)
+    if ok then
+      table.insert(plugins, plugin)
     end
   end
 
   return plugins
 end
 
-return find_recursive(dir)
-
+return find_plugins(dir)

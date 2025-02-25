@@ -2,19 +2,16 @@ local commands = {}
 
 -- close buffer
 
-local function close_buffer()
-  -- delete current file buffer
-  require("mini.bufremove").delete(0)
-
-  local buf_amount = #vim.fn.getbufinfo({ buflisted = 1 })
-  if buf_amount == 1 then
-    vim.cmd("Dashboard")
-  end
-end
-
 table.insert(commands, {
   "CloseBuffer",
-  close_buffer,
+  function()
+    Snacks.bufdelete()
+
+    local buf_amount = #vim.fn.getbufinfo({ buflisted = 1 })
+    if buf_amount == 1 then
+      vim.cmd("Dashboard")
+    end
+  end,
   {
     nargs = 0,
   },

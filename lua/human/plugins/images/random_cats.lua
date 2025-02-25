@@ -10,4 +10,4 @@ local cats = {
 math.randomseed(os.time())
 local random_cat = cats[math.random(#cats)]
 
-return require("ui.dashboard.images." .. random_cat)
+return require("human.plugins.images." .. random_cat)

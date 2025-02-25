@@ -4,4 +4,5 @@ return {
   "cryptomilk/nightcity.nvim",
   "Yazeed1s/oh-lucy.nvim",
   "vim-scripts/revolutions.vim",
+  "meir/rosebush",
 }
