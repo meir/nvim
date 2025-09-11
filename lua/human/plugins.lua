@@ -14,12 +14,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-function plugin(plugin)
-  return require("human.plugin." .. plugin)
+local function plugin(name)
+  return require("human.plugin." .. name)
 end
 
-function colorscheme(colorscheme)
-  return require("human.colorscheme." .. colorscheme)
+local function colorscheme(name)
+  return require("human.colorscheme." .. name)
 end
 
 require("lazy").setup({

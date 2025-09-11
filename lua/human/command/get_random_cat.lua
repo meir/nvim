@@ -72,7 +72,7 @@ local function pad(logo)
   return vim.fn.join(logo, "\n")
 end
 
-function get_cat()
+local function get_cat()
   math.randomseed(os.time())
   local random_cat = cats[math.random(#cats)]
   return pad(random_cat)
