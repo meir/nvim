@@ -30,6 +30,9 @@ require("lazy").setup({
   colorscheme("revolutions"),
   colorscheme("rose-pine"),
   colorscheme("rosebush"),
+  colorscheme("nightblossom"),
+  colorscheme("parsee"),
+  colorscheme("everforest"),
 
   plugin("oil"),
   plugin("blink"),
@@ -46,4 +49,5 @@ require("lazy").setup({
   plugin("lualine"),
   plugin("copilot"),
   plugin("dashboard"),
+  plugin("sunglasses"),
 })

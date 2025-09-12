@@ -1,0 +1,3 @@
+return {
+  "rijulpaul/nightblossom.nvim"
+}
