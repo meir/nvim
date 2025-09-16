@@ -20,7 +20,7 @@ return {
       neovim_image_text = "Emacs",
       main_image = "neovim",
       client_id = "793271441293967371",
-      log_level = nil,
+      log_level = nil, -- "debug",
       debounce_timeout = 10,
       enable_line_number = true,
       blacklist = {},
@@ -30,7 +30,7 @@ return {
 
       -- text
       editing_text = function(file)
-        format("Editing %s", file)
+        return format("Editing %s", file)
       end,
       file_explorer_text = function(file_exporer)
         return format("Browsing %s", file_exporer)
