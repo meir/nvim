@@ -33,6 +33,7 @@ require("lazy").setup({
   colorscheme("nightblossom"),
   colorscheme("parsee"),
   colorscheme("everforest"),
+  colorscheme("rei"),
 
   plugin("oil"),
   plugin("blink"),
