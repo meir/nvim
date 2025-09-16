@@ -33,22 +33,22 @@ return {
         format("Editing %s", file)
       end,
       file_explorer_text = function(file_exporer)
-        format("Browsing %s", file_exporer)
+        return format("Browsing %s", file_exporer)
       end,
       git_commit_text = function(filename)
-        format("Commiting %s", filename)
+        return format("Commiting %s", filename)
       end,
       plugin_manager_text = function(plugin_manager)
-        format("Managing %s", plugin_manager)
+        return format("Managing %s", plugin_manager)
       end,
       reading_text = function(filename)
-        format("Reading %s", filename)
+        return format("Reading %s", filename)
       end,
       workspace_text = function(project_name, buffer)
-        format("Working on %s", project_name)
+        return format("Working on %s", project_name)
       end,
       line_number_text = function(line_number, line_count)
-        format("Line %s out of %s", line_number, line_count)
+        return format("Line %s out of %s", line_number, line_count)
       end,
     })
   end,
