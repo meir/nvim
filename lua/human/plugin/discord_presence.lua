@@ -5,7 +5,10 @@ return {
     editor = {
       client = "neovim",
       tooltip = "E-macs",
-      icon = "",
+      icon = "https://github.com/meir/nvim/blob/main/NeovimShadowed.png?raw=true",
+    },
+    display = {
+      swap_icons = true,
     }
   },
 }
