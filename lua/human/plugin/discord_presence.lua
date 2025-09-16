@@ -10,10 +10,5 @@ return {
     display = {
       swap_icons = true,
     },
-    text = {
-        editing = 'Editing ${filename}',
-        file_browser = 'Browsing files in ${tooltip}',
-    },
-    variables = true,
   },
 }
