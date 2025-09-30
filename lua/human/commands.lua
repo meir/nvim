@@ -13,4 +13,5 @@ command("colorscheme_reset")
 command("colorscheme_save")
 command("set_buffer_filetype")
 command("get_random_cat")
+command("format")
 

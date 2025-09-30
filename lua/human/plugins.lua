@@ -19,7 +19,9 @@ local function plugin(name)
 end
 
 local function colorscheme(name)
-  return require("human.colorscheme." .. name)
+  local colorscheme = require("human.colorscheme." .. name)
+  colorscheme.lazy = true
+  return colorscheme
 end
 
 require("lazy").setup({
@@ -29,7 +31,6 @@ require("lazy").setup({
   colorscheme("oh-lucy"),
   colorscheme("revolutions"),
   colorscheme("rose-pine"),
-  colorscheme("rosebush"),
   colorscheme("nightblossom"),
   colorscheme("parsee"),
   colorscheme("everforest"),
@@ -39,7 +40,7 @@ require("lazy").setup({
   plugin("blink"),
   plugin("fzf"),
   plugin("treesitter"),
-  plugin("lazy_lsp"),
+  plugin("lazy-lsp"),
   plugin("conform"),
   plugin("fundo"),
   plugin("discord_presence"),

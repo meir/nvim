@@ -44,7 +44,7 @@ keymap("n", "<leader>bd", "<cmd>bd!<cr>", { desc = "Close buffer" })
 keymap("n", "<leader>bt", "<cmd>SetBufferFiletype<cr>", { desc = "Set buffer filetype" })
 
 -- format buffer
-keymap("n", "<leader>bf", vim.lsp.buf.format, { desc = "Format buffer" })
+keymap("n", "<leader>bf", "<cmd>Format<cr>", { desc = "Format buffer" })
 
 -- lsp hops
 -- keymap("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", { desc = "Go to definition" })
