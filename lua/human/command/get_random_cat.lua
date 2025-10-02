@@ -1,20 +1,14 @@
-local function read_file(file_path)
-  local file = io.open("lua/human/command/cats/" .. file_path, "r")
-  if not file then
-    return "no cat found :("
-  end
-  local content = file:read("*all")
-  file:close()
-  return content
+local function read_file(cat_name)
+  return require("human.command.cats." .. cat_name)
 end
 
 local cats = {
-  read_file("01.txt"),
-  read_file("02.txt"),
-  read_file("03.txt"),
-  read_file("04.txt"),
-  read_file("05.txt"),
-  read_file("06.txt"),
+  read_file("01"),
+  read_file("02"),
+  read_file("03"),
+  read_file("04"),
+  read_file("05"),
+  read_file("06"),
 }
 
 local function pad(logo)
