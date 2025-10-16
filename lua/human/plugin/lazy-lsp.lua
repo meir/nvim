@@ -1,5 +1,7 @@
 return {
   "dundalek/lazy-lsp.nvim",
   dependencies = { "neovim/nvim-lspconfig" },
-  opts = {},
+  opts = {
+    use_vim_lsp_config = true,
+  },
 }
