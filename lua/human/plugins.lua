@@ -35,6 +35,7 @@ require("lazy").setup({
   colorscheme("parsee"),
   colorscheme("everforest"),
   colorscheme("rei"),
+  colorscheme("cwal"),
 
   plugin("oil"),
   plugin("blink"),
